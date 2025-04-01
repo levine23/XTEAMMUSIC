@@ -506,7 +506,6 @@ async def feature_callback(client: Client, callback_query: CallbackQuery):
         ],
         [
             InlineKeyboardButton(text="˹ᴛᴏᴏʟs˼", callback_data="tools"),
-            InlineKeyboardButton(text="˹ᴧʟʟ˼", callback_data="settings_back_helper"),
         ],
         [InlineKeyboardButton(text="✯ ʜᴏᴍᴇ ✯", callback_data="go_to_start")],
     ]
