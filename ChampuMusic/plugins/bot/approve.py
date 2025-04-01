@@ -6,7 +6,7 @@ from ChampuMusic import app
 from ChampuMusic.core.mongo import mongodb
 from ChampuMusic.misc import SUDOERS
 from ChampuMusic.utils.keyboard import ikb
-from utils.permissions import adminsOnly, member_permissions
+from ChampuMusic.utils.permissions import adminsOnly, member_permissions
 
 approvaldb = mongodb.autoapprove
 
