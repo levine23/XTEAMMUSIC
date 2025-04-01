@@ -40,14 +40,10 @@ async def init():
     except Exception:
         pass
 
-    for all_module in ALL_MODULES:
-        imported_module = importlib.import_module(all_module)
-
-        if hasattr(imported_module, "__MODULE__") and imported_module.__MODULE__:
-            if hasattr(imported_module, "__HELP__") and imported_module.__HELP__:
-                HELPABLE[imported_module.__MODULE__.lower()] = imported_module
-    LOGGER("ChampuMusic.plugins").info("sᴜᴄᴄᴇssғᴜʟʟʏ ɪᴍᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇs...")
-
+        for all_module in ALL_MODULES:
+        importlib.import_module("ChampuMusic.plugins" + all_module)
+    LOGGER("ChampuMusic.plugins").info("Successfully Imported Modules...")
+    
     await Champu.start()
     await Champu.decorators()
     LOGGER("ChampuMusic").info("\x43\x68\x61\x6D\x70\x75\x20\x42\x6F\x74\x20\x68\x61\x73\x20\x62\x65\x65\x6E\x20\x73\x75\x63\x63\x65\x73\x73\x66\x75\x6C\x6C\x79\x20\x73\x74\x61\x72\x74\x65\x64\x2E\x0A\x0A\x40\x54\x68\x65\x43\x68\x61\x6D\x70\x75\x20")
