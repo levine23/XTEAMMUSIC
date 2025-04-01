@@ -78,6 +78,7 @@ async def start_comm(client, message: Message, _):
                 )
             else:
                 return await message.react("😍")
+
         if name[0:4] == "song":
             await message.reply_text(_["song_2"])
             return
