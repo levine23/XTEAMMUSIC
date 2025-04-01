@@ -37,11 +37,11 @@ async def init():
         importlib.import_module("ChampuMusic.plugins" + all_module)
     LOGGER("ChampuMusic.plugins").info("Successfully Imported Modules...")
     await userbot.start()
-    await Anony.start()
+    await Champu.start()
     try:
         await Champu.stream_call("https://telegra.ph/file/cba632240b79207bf8a9c.mp4")
     except NoActiveGroupCall:
-        LOGGER("AnonXMusic").error(
+        LOGGER("ChampuMusic").error(
             "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
         )
         exit()
