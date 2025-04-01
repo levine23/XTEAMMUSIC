@@ -39,7 +39,7 @@ async def init():
     await userbot.start()
     await Anony.start()
     try:
-        await Anony.stream_call("https://telegra.ph/file/cba632240b79207bf8a9c.mp4")
+        await Champu.stream_call("https://telegra.ph/file/cba632240b79207bf8a9c.mp4")
     except NoActiveGroupCall:
         LOGGER("AnonXMusic").error(
             "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
@@ -47,7 +47,7 @@ async def init():
         exit()
     except:
         pass
-    await Anony.decorators()
+    await Champu.decorators()
     LOGGER("ChampuMusic").info("╔═════ஜ۩۞۩ஜ════╗\n  ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 𝐂𝐡𝐢𝐧𝐧𝐚 ♨️\n╚═════ஜ۩۞۩ஜ════╝")
         
     await idle()
