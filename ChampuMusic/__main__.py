@@ -23,7 +23,6 @@ async def init():
     ):
         LOGGER(__name__).error("Assistant client variables not defined, exiting...")
         exit()
-    await sudo()
     try:
         users = await get_gbanned()
         for user_id in users:
@@ -31,7 +30,7 @@ async def init():
         users = await get_banned_users()
         for user_id in users:
             BANNED_USERS.add(user_id)
-    except:
+    except Exception:
         pass
     await app.start()
     for all_module in ALL_MODULES:
