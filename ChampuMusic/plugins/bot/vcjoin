@@ -1,0 +1,77 @@
+import asyncio
+import logging
+from ChampuMusic import app
+from pyrogram import Client, filters
+from pyrogram.enums import ChatAction, ChatMemberStatus
+from pyrogram.errors import FloodWait
+from pytgcalls import PyTgCalls
+from pytgcalls.types import Update, UpdatedGroupCallParticipant, GroupCallParticipant
+from config import OWNER_ID
+from typing import Optional
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+async def participant_handler(_: PyTgCalls, update: Update):
+    if not isinstance(update, UpdatedGroupCallParticipant):
+        return
+
+    participant = update.participant
+    if participant.action != GroupCallParticipant.Action.JOINED:
+        return
+
+    try:
+        # Fetch chat title
+        chat_title = await get_chat_title(update.chat_id)
+
+        # Fetch user details
+        user_mention = await get_user_mention(participant.user_id)
+
+        # Prepare the message
+        message_text = f"""
+#NewVoiceChatParticipant
+• User ID: <code>{participant.user_id}</code>
+• Mention: {user_mention}
+• Muted: <code>{participant.muted}</code>
+• Muted by Admin: <code>{participant.muted_by_admin}</code>
+• Video: <code>{participant.video}</code>
+• Screen Sharing: <code>{participant.screen_sharing}</code>
+• Video Camera: <code>{participant.video_camera}</code>
+• Volume: <code>{participant.volume}%</code>
+"""
+
+        # Send the message
+        sent_message = await app.send_message(
+            chat_id=update.chat_id,
+            text=message_text,
+            disable_web_page_preview=True
+        )
+
+        # Delete the message after 20 seconds
+        await asyncio.sleep(20)
+        await sent_message.delete()
+
+    except FloodWait as fw:
+        logger.warning(f"FloodWait: Sleeping for {fw.value} seconds")
+        await asyncio.sleep(int(fw.value))
+    except Exception as e:
+        logger.error(f"Error in participant_handler: {e}", exc_info=True)
+
+async def get_chat_title(chat_id: int) -> str:
+    """Fetch the chat title or return the chat ID as a fallback."""
+    try:
+        chat = await app.get_chat(chat_id)
+        return chat.title
+    except Exception as e:
+        logger.warning(f"Failed to fetch chat title for {chat_id}: {e}")
+        return str(chat_id)
+
+async def get_user_mention(user_id: int) -> str:
+    """Fetch the user mention or return a fallback mention."""
+    try:
+        user = await app.get_users(user_id)
+        return user.mention if user.mention else f"<a href='tg://user?id={user.id}'>{user.first_name}</a>"
+    except Exception as e:
+        logger.warning(f"Failed to fetch user mention for {user_id}: {e}")
+        return f"<a href='tg://user?id={user_id}'>User</a>"
