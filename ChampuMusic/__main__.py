@@ -4,7 +4,7 @@ import importlib
 from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
-from .config import config 
+import config 
 from ChampuMusic import LOGGER, app, userbot
 from ChampuMusic.core.call import Anony
 from ChampuMusic.misc import sudo
