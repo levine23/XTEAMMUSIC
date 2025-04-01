@@ -7,3 +7,6 @@ from .pastebin import *
 from .sys import *
 from .admin_check import *
 from .champu_ban import *
+from .error import *
+from .welcomedb import *
+from .couple import *
