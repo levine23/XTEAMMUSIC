@@ -10,7 +10,7 @@ from ChampuMusic.core.call import Champu
 from ChampuMusic.misc import sudo
 from ChampuMusic.plugins import ALL_MODULES
 from ChampuMusic.utils.database import get_banned_users, get_gbanned
-from .config import BANNED_USERS
+from config import BANNED_USERS
 
 
 async def init():
