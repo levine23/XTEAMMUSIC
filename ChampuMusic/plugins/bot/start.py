@@ -76,8 +76,16 @@ async def start_comm(client, message: Message, _):
                     text=_["help_1"],
                     reply_markup=keyboard,
                 )
+            try:
+                await message.react("😍")
+            except Exception as e:
+                print(f"Reaction failed: {e}") #Print the error to your console.
+            else:
                 try:
-                    await message.react("😍")
+                    await message.react("👍")
+                except Exception as e:
+                    print(f"Reaction failed: {e}")
+            
         if name[0:4] == "song":
             await message.reply_text(_["song_2"])
             return
