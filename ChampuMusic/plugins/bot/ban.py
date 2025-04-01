@@ -17,7 +17,7 @@ from pyrogram.errors import FloodWait, ChatAdminRequired, UserNotParticipant, In
 from ChampuMusic import app
 from ChampuMusic.misc import SUDOERS
 from ChampuMusic.core.mongo import mongodb
-from utils.error import capture_err
+from ChampuMusic.utils.error import capture_err
 from ChampuMusic.utils.keyboard import ikb
 from ChampuMusic.utils.database import save_filter
 from ChampuMusic.utils.functions import (
