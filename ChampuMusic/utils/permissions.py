@@ -6,7 +6,7 @@ from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
 
 from ChampuMusic import app
-from ChampuMusic.misc import SUDOERS, SPECIAL_ID
+from ChampuMusic.misc import SUDOERS
 
 
 async def member_permissions(chat_id: int, user_id: int):
@@ -75,8 +75,7 @@ async def unauthorised(
 
 async def bot_permissions(chat_id: int):
     perms = []
-    bot_id = (await app.get_me()).id
-    return await member_permissions(chat_id, bot_id)
+    return await member_permissions(chat_id, app.id)
 
 
 def adminsOnly(permission):
