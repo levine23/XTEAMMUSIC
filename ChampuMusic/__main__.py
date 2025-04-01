@@ -2,13 +2,15 @@ import asyncio
 import importlib
 
 from pyrogram import idle
+from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
+from AnonXMusic import LOGGER, app, userbot
+from AnonXMusic.core.call import Anony
+from AnonXMusic.misc import sudo
+from AnonXMusic.plugins import ALL_MODULES
+from AnonXMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
-from ChampuMusic import HELPABLE, LOGGER, app, userbot
-from ChampuMusic.core.call import Champu
-from ChampuMusic.plugins import ALL_MODULES
-from ChampuMusic.utils.database import get_banned_users, get_gbanned
 
 
 async def init():
@@ -19,17 +21,9 @@ async def init():
         and not config.STRING4
         and not config.STRING5
     ):
-        LOGGER("ChampuMusic").error(
-            "ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ ᴠᴀʀɪᴀʙʟᴇs ɴᴏᴛ ᴅᴇғɪɴᴇᴅ, ᴇxɪᴛɪɴɢ..."
-        )
-        return
-    if not config.SPOTIFY_CLIENT_ID and not config.SPOTIFY_CLIENT_SECRET:
-        LOGGER("ChampuMusic").warning(
-            "ɴᴏ sᴘᴏᴛɪғʏ ᴠᴀʀs ᴅᴇғɪɴᴇᴅ. ʏᴏᴜʀ ʙᴏᴛ ᴡᴏɴ'ᴛ ʙᴇ ᴀʙʟᴇ ᴛᴏ ᴘʟᴀʏ sᴘᴏᴛɪғʏ ǫᴜᴇʀɪᴇs..."
-        )
-
-    await app.start()
-    await userbot.start()
+        LOGGER(__name__).error("Assistant client variables not defined, exiting...")
+        exit()
+    await sudo()
     try:
         users = await get_gbanned()
         for user_id in users:
@@ -37,19 +31,32 @@ async def init():
         users = await get_banned_users()
         for user_id in users:
             BANNED_USERS.add(user_id)
-    except Exception:
+    except:
         pass
-
-        for all_module in ALL_MODULES:
+    await app.start()
+    for all_module in ALL_MODULES:
         importlib.import_module("ChampuMusic.plugins" + all_module)
     LOGGER("ChampuMusic.plugins").info("Successfully Imported Modules...")
-    
-    await Champu.start()
-    await Champu.decorators()
-    LOGGER("ChampuMusic").info("\x43\x68\x61\x6D\x70\x75\x20\x42\x6F\x74\x20\x68\x61\x73\x20\x62\x65\x65\x6E\x20\x73\x75\x63\x63\x65\x73\x73\x66\x75\x6C\x6C\x79\x20\x73\x74\x61\x72\x74\x65\x64\x2E\x0A\x0A\x40\x54\x68\x65\x43\x68\x61\x6D\x70\x75\x20")
+    await userbot.start()
+    await Anony.start()
+    try:
+        await Anony.stream_call("https://telegra.ph/file/cba632240b79207bf8a9c.mp4")
+    except NoActiveGroupCall:
+        LOGGER("AnonXMusic").error(
+            "Please turn on the videochat of your log group\channel.\n\nStopping Bot..."
+        )
+        exit()
+    except:
+        pass
+    await Anony.decorators()
+    LOGGER("ChampuMusic").info("╔═════ஜ۩۞۩ஜ════╗\n  ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 𝐂𝐡𝐢𝐧𝐧𝐚 ♨️\n╚═════ஜ۩۞۩ஜ════╝")
+        
     await idle()
+    await app.stop()
+    await userbot.stop()
+    LOGGER("ChampuMusic").info("╔═════ஜ۩۞۩ஜ════╗\n  ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 𝐂𝐡𝐢𝐧𝐧𝐚 ♨️\n╚═════ஜ۩۞۩ஜ════╝")
 
 
 if __name__ == "__main__":
-    asyncio.get_event_loop_policy().get_event_loop().run_until_complete(init())
-    LOGGER("ChampuMusic").info("sᴛᴏᴘᴘɪɴɢ ᴄʜᴀᴍᴘᴜᴍᴜsɪᴄ! ɢᴏᴏᴅʙʏᴇ")
+    asyncio.get_event_loop().run_until_complete(init())
+    
