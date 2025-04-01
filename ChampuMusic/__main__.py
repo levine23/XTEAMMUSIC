@@ -6,7 +6,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 
 import config 
 from ChampuMusic import LOGGER, app, userbot
-from ChampuMusic.core.call import Anony
+from ChampuMusic.core.call import Champu
 from ChampuMusic.misc import sudo
 from ChampuMusic.plugins import ALL_MODULES
 from ChampuMusic.utils.database import get_banned_users, get_gbanned
