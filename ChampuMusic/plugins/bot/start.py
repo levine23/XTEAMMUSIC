@@ -59,8 +59,6 @@ async def ban_new(client, message):
 async def start_comm(client, message: Message, _):
     chat_id = message.chat.id
     await add_served_user(message.from_user.id)
-    await message.react("😍")
-    
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
@@ -78,6 +76,8 @@ async def start_comm(client, message: Message, _):
                     text=_["help_1"],
                     reply_markup=keyboard,
                 )
+            else:
+                return await message.react("😍")
         if name[0:4] == "song":
             await message.reply_text(_["song_2"])
             return
