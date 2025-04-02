@@ -16,14 +16,17 @@ from pyrogram.errors import (
 )
 from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls
-from pytgcalls.exceptions import NotInCallError, NoActiveGroupCall
+from pytgcalls.exceptions import (
+    AlreadyJoinedError,
+    NoActiveGroupCall,
+)
 from pytgcalls.types import (
-    UpdatedGroupCallParticipant,
-    GroupCallParticipant,
+    JoinedGroupCallParticipant,
+    LeftGroupCallParticipant,
     MediaStream,
     Update,
 )
-from pytgcalls.types.stream import StreamEnded
+from pytgcalls.types.stream import StreamAudioEnded
 
 import config
 from strings import get_string
@@ -737,11 +740,11 @@ class Call(PyTgCalls):
             await self.five.start()
 
     async def decorators(self):
-        """#@self.one.on_kicked()
-        #@self.two.on_kicked()
-        #@self.three.on_kicked()
-        #@self.four.on_kicked()
-        #@self.five.on_kicked()
+        @self.one.on_kicked()
+        @self.two.on_kicked()
+        @self.three.on_kicked()
+        @self.four.on_kicked()
+        @self.five.on_kicked()
         @self.one.on_closed_voice_chat()
         @self.two.on_closed_voice_chat()
         @self.three.on_closed_voice_chat()
@@ -751,25 +754,25 @@ class Call(PyTgCalls):
         @self.two.on_left()
         @self.three.on_left()
         @self.four.on_left()
-        @self.five.on_left()"""
+        @self.five.on_left()
         async def stream_services_handler(_, chat_id: int):
             await self.stop_stream(chat_id)
 
-        """@self.one.on_stream_end()
+        @self.one.on_stream_end()
         @self.two.on_stream_end()
         @self.three.on_stream_end()
         @self.four.on_stream_end()
-        @self.five.on_stream_end()"""
+        @self.five.on_stream_end()
         async def stream_end_handler(client, update: Update):
             if not isinstance(update, StreamAudioEnded):
                 return
             await self.change_stream(client, update.chat_id)
 
-        """@self.one.on_participants_change()
+        @self.one.on_participants_change()
         @self.two.on_participants_change()
         @self.three.on_participants_change()
         @self.four.on_participants_change()
-        @self.five.on_participants_change()"""
+        @self.five.on_participants_change()
         async def participants_change_handler(client, update: Update):
             if not isinstance(update, JoinedGroupCallParticipant) and not isinstance(
                 update, LeftGroupCallParticipant
