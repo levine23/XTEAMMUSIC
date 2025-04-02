@@ -755,21 +755,21 @@ class Call(PyTgCalls):
         async def stream_services_handler(_, chat_id: int):
             await self.stop_stream(chat_id)
 
-        @self.one.on_stream_end()
+        """@self.one.on_stream_end()
         @self.two.on_stream_end()
         @self.three.on_stream_end()
         @self.four.on_stream_end()
-        @self.five.on_stream_end()
+        @self.five.on_stream_end()"""
         async def stream_end_handler(client, update: Update):
             if not isinstance(update, StreamAudioEnded):
                 return
             await self.change_stream(client, update.chat_id)
 
-        @self.one.on_participants_change()
+        """@self.one.on_participants_change()
         @self.two.on_participants_change()
         @self.three.on_participants_change()
         @self.four.on_participants_change()
-        @self.five.on_participants_change()
+        @self.five.on_participants_change()"""
         async def participants_change_handler(client, update: Update):
             if not isinstance(update, JoinedGroupCallParticipant) and not isinstance(
                 update, LeftGroupCallParticipant
