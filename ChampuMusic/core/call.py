@@ -18,8 +18,8 @@ from pyrogram.types import InlineKeyboardMarkup
 from pytgcalls import PyTgCalls
 from pytgcalls.exceptions import NotInCallError, NoActiveGroupCall
 from pytgcalls.types import (
-    JoinedGroupCallParticipant,
-    LeftGroupCallParticipant,
+    UpdatedGroupCallParticipant,
+    GroupCallParticipant,
     MediaStream,
     Update,
 )
