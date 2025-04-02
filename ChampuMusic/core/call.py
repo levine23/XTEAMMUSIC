@@ -737,7 +737,7 @@ class Call(PyTgCalls):
             await self.five.start()
 
     async def decorators(self):
-        #@self.one.on_kicked()
+        """#@self.one.on_kicked()
         #@self.two.on_kicked()
         #@self.three.on_kicked()
         #@self.four.on_kicked()
@@ -751,7 +751,7 @@ class Call(PyTgCalls):
         @self.two.on_left()
         @self.three.on_left()
         @self.four.on_left()
-        @self.five.on_left()
+        @self.five.on_left()"""
         async def stream_services_handler(_, chat_id: int):
             await self.stop_stream(chat_id)
 
