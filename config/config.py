@@ -56,7 +56,7 @@ LOGGER_ID = int(getenv("LOGGER_ID", None))
 
 # Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", 6399386263).split())
+    map(int, getenv("OWNER_ID", 1434595544).split())
 )  # Input type must be interger
 
 ## Fill these variables if you're deploying on heroku.
@@ -76,10 +76,10 @@ GIT_TOKEN = getenv(
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/akaChampu"
+    "SUPPORT_CHANNEL", "https://t.me/xteam_cloner"
 )  # Example:- https://t.me/akaChampu
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/TheChampuClub"
+    "SUPPORT_GROUP", "https://t.me/xteam_cloner"
 )  # Example:- https://t.me/TheChampuClub
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", True)
@@ -141,15 +141,6 @@ STRING5 = getenv("STRING_SESSION5", None)
 
 
 
-#   ░█████╗░██╗░░██╗░█████╗░███╗░░░███╗██████╗░██╗░░░██╗
-#   ██╔══██╗██║░░██║██╔══██╗████╗░████║██╔══██╗██║░░░██║
-#   ██║░░╚═╝███████║███████║██╔████╔██║██████╔╝██║░░░██║
-#   ██║░░██╗██╔══██║██╔══██║██║╚██╔╝██║██╔═══╝░██║░░░██║
-#   ╚█████╔╝██║░░██║██║░░██║██║░╚═╝░██║██║░░░░░╚██████╔╝
-#   ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░░░░░╚═════╝░     
-
-
-
 ### DONT TOUCH or EDIT codes after this line
 BANNED_USERS = filters.user()
 YTDOWNLOADER = 1
@@ -171,7 +162,7 @@ autoclean = []
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://telegra.ph/file/d3e855bc548a1ce9649e7.jpg",
+    "https://files.catbox.moe/5365ez.jpg",
 )
 
 PING_IMG_URL = getenv(
