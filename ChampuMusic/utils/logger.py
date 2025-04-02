@@ -10,10 +10,10 @@ async def play_logs(message, streamtype):
         else:
             chatusername = "ᴘʀɪᴠᴀᴛᴇ ɢʀᴏᴜᴘ"
 
-        logger_text = f"""
-**{app.mention} ᴘʟᴀʏ ʟᴏɢ**
+        logger_text = f"""<blockquote>
+**{app.mention} ᴘʟᴀʏ ʟᴏɢ**</blockquote>
 
-**ᴄʜᴀᴛ ɪᴅ :** `{message.chat.id}`
+<blockquote>**ᴄʜᴀᴛ ɪᴅ :** `{message.chat.id}`
 **ᴄʜᴀᴛ ɴᴀᴍᴇ :** {message.chat.title}
 **ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ :** {chatusername}
 
@@ -22,7 +22,7 @@ async def play_logs(message, streamtype):
 **ᴜsᴇʀɴᴀᴍᴇ :** @{message.from_user.username}
 
 **ǫᴜᴇʀʏ :** {message.text.split(None, 1)[1]}
-**sᴛʀᴇᴀᴍᴛʏᴘᴇ :** {streamtype}"""
+**sᴛʀᴇᴀᴍᴛʏᴘᴇ :** {streamtype}</blockquote>"""
         if message.chat.id != LOGGER_ID:
             try:
                 await app.send_message(
