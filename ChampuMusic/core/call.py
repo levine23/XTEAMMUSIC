@@ -23,7 +23,7 @@ from pytgcalls.types import (
     MediaStream,
     Update,
 )
-from pytgcalls.types.stream import StreamAudioEnded
+from pytgcalls.types.stream import StreamEnded
 
 import config
 from strings import get_string
