@@ -153,7 +153,7 @@ async def start_comm(client, message: Message, _):
                     config.LOGGER_ID,
                     f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <code>sᴜᴅᴏʟɪsᴛ </code>\n\n**ᴜsᴇʀ ɪᴅ :** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
                 )
-                await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
+                await message.reply_sticker(sticker=AAMCBQADGQEAARa7A2fuinxNRTJqtIWMrKblVxg4kFwbAAKJFQACsogIVL4swMdrxAe0AQAHbQADNgQ)
                 await asyncio.sleep(1)
             return
         if name[0:3] == "lyr":
@@ -211,7 +211,7 @@ async def start_comm(client, message: Message, _):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=key,
             )
-            await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
+            await message.reply_sticker(sticker=AAMCBQADGQEAARa7A2fuinxNRTJqtIWMrKblVxg4kFwbAAKJFQACsogIVL4swMdrxAe0AQAHbQADNgQ)
             await asyncio.sleep(1)
             if await is_on_off(config.LOG):
                 sender_id = message.from_user.id
