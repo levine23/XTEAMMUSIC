@@ -153,6 +153,8 @@ async def start_comm(client, message: Message, _):
                     config.LOGGER_ID,
                     f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <code>sᴜᴅᴏʟɪsᴛ </code>\n\n**ᴜsᴇʀ ɪᴅ :** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
                 )
+                await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
+                await asyncio.sleep(1)
             return
         if name[0:3] == "lyr":
             query = (str(name)).replace("lyrics_", "", 1)
@@ -209,6 +211,7 @@ async def start_comm(client, message: Message, _):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=key,
             )
+            await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
             await asyncio.sleep(1)
             if await is_on_off(config.LOG):
                 sender_id = message.from_user.id
@@ -274,12 +277,14 @@ async def testbot(client, message: Message, _):
                 caption=_["start_7"].format(client.mention, get_readable_time(uptime)),
                 reply_markup=InlineKeyboardMarkup(out),
             )
+            await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
         else:
             await message.reply_photo(
                 photo=config.START_IMG_URL,
                 caption=_["start_7"].format(client.mention, get_readable_time(uptime)),
                 reply_markup=InlineKeyboardMarkup(out),
             )
+            await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
 
         # Add the chat to the served chat list
         return await add_served_chat(chat_id)
