@@ -1,7 +1,7 @@
 import uvloop
 
 uvloop.install()
-
+from pytgcalls import __version__ as pytver
 import pyrogram
 from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus
@@ -44,6 +44,12 @@ class ChampuBot(Client):
                         text="๏ ᴀᴅᴅ ᴍᴇ ɪɴ ɢʀᴏᴜᴘ ๏",
                         url=f"https://t.me/{self.username}?startgroup=true",
                     )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text="⚡ ᴄʟᴏsᴇ ⚡", 
+                        callback_data="close",
+                    )
                 ]
             ]
         )
@@ -54,7 +60,7 @@ class ChampuBot(Client):
                 await self.send_photo(
                     config.LOGGER_ID,
                     photo=config.START_IMG_URL,
-                    caption=f"<blockquote>╔════❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱════❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║┣⪼ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚════════════════❍⊱❁</blockquote>",
+                    caption=f"<blockquote>❍⊱❁۪۪🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ❁⊱❍</blockquote>\n\n<blockquote>◈ {self.name} : @{self.username}\n\n⪼🎈ɪᴅ:- `{self.id}` \n\n⪼🎄 Py-tgcalls : {pytver}\n\n🥀ntgcalls : {} \n\n⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n\n</blockquote>",
                     reply_markup=button,
                 )
             except pyrogram.errors.ChatWriteForbidden as e:
@@ -62,7 +68,7 @@ class ChampuBot(Client):
                 try:
                     await self.send_message(
                         config.LOGGER_ID,
-                        f"<blockquote>╔═══❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱═══❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║◈ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚══════════════❍⊱❁</blockquote>",
+                        f"<blockquote>❍⊱❁۪۪🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ❁⊱❍</blockquote>\n\n<blockquote>◈ {self.name} : @{self.username}\n\n⪼🎈ɪᴅ:- `{self.id}` \n\n⪼🎄 Py-tgcalls : {pytver}\n\n🥀ntgcalls : {} \n\n⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n\n❍⊱❁</blockquote>",
                         reply_markup=button,
                     )
                 except Exception as e:
