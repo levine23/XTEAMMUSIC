@@ -180,6 +180,12 @@ def telegram_markup_timer(_, chat_id, played, dur, videoid):
                 callback_data=f"Pages Forw|0|{videoid}|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
+            ),
+        ],
     ]
 
     return buttons
@@ -353,6 +359,12 @@ def track_markup(_, videoid, user_id, channel, fplay, chat_id):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
+            ),
+        ],
     ]
 
     return buttons
@@ -414,6 +426,12 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
                 callback_data=f"MainMarkup {videoid}|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
+            ),
+        ],
     ]
 
     return buttons
@@ -450,6 +468,12 @@ def stream_markup(_, videoid, chat_id):
                 callback_data=f"Pages Forw|0|{videoid}|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
+            ),
+        ],
     ]
 
     return buttons
@@ -471,6 +495,12 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
                 callback_data=f"forceclose {videoid}|{user_id}",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
             ),
         ],
     ]
@@ -495,6 +525,12 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
                 callback_data=f"forceclose {videoid}|{user_id}",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
             ),
         ],
     ]
@@ -590,6 +626,12 @@ def queue_markup(_, videoid, chat_id):
                 callback_data=f"PanelMarkup None|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
+            ),
+        ],
     ]
 
     return buttons
@@ -672,6 +714,12 @@ def stream_markup_timer2(_, chat_id, played, dur, videoid):
                 callback_data=f"Pages Forw|0|{videoid}|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
+            ),
+        ],
     ]
 
     return buttons
@@ -710,6 +758,12 @@ def panel_markup_1(_, videoid, chat_id):
             InlineKeyboardButton(
                 text="๏ ɴᴇxᴛ ๏",
                 callback_data=f"Pages Forw|2|{videoid}|{chat_id}",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
             ),
         ],
     ]
