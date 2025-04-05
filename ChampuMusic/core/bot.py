@@ -60,7 +60,7 @@ class ChampuBot(Client):
                 await self.send_photo(
                     config.LOGGER_ID,
                     photo=config.START_IMG_URL,
-                    caption=f"<blockquote>❍⊱❁۪۪🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ❁⊱❍</blockquote>\n\n<blockquote>◈ {self.name} : @{self.username}\n\n⪼🎈ɪᴅ:- `{self.id}` \n\n⪼🎄 ᴘʏ-ᴛɢᴄᴀʟʟꜱ : {pytver}\n\n⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n\n</blockquote>",
+                    caption=f"<blockquote>❍ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ❍</blockquote>\n<blockquote>◈ {self.name} : @{self.username}\n\n❍ ɪᴅ:- `{self.id}` \n\n❍ ᴘʏ-ᴛɢᴄᴀʟʟꜱ : {pytver}\n\n❍ ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ ❍\n\n</blockquote>",
                     reply_markup=button,
                 )
             except pyrogram.errors.ChatWriteForbidden as e:
@@ -68,8 +68,8 @@ class ChampuBot(Client):
                 try:
                     await self.send_message(
                         config.LOGGER_ID,
-                        f"<blockquote>❍⊱❁۪۪🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ❁⊱❍</blockquote>\n\n<blockquote>◈ {self.name} : @{self.username}\n\n⪼🎈ɪᴅ:- `{self.id}` \n\n⪼🎄 ᴘʏ-ᴛɢᴄᴀʟʟꜱ : {pytver}\n\n⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n\n❍⊱❁</blockquote>",
-                        reply_markup=button,
+                        f"<blockquote>❍ ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ❍</blockquote>\n<blockquote>◈ {self.name} : @{self.username}\n\n❍ ɪᴅ:- `{self.id}` \n\n❍ ᴘʏ-ᴛɢᴄᴀʟʟꜱ : {pytver}\n\n❍ ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ ❍\n\n</blockquote>",
+                    reply_markup=button,
                     )
                 except Exception as e:
                     LOGGER(__name__).error(f"Failed to send message in log group: {e}")
