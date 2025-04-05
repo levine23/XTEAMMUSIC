@@ -95,6 +95,12 @@ def stream_markup_timerr(_, videoid, chat_id, played, dur):
                 callback_data=f"Pages Forw|0|{videoid}|{chat_id}",
             ),
         ],
+        [
+            InlineKeyboardButton(
+                text="⚡ ᴄʟᴏsᴇ ⚡", 
+                callback_data="close",
+            ),
+        ],
     ]
 
     return buttons
