@@ -70,11 +70,13 @@ async def start_comm(client, message: Message, _):
                     photo=START_IMG_URL,
                     caption=_["help_1"],
                     reply_markup=keyboard,
+                    effect_id=5104841245755180586,
                 )
             else:
                 return await message.reply_text(
                     text=_["help_1"],
                     reply_markup=keyboard,
+                    effect_id=5104841245755180586,
                 )
         if name[0:4] == "song":
             await message.reply_text(_["song_2"])
