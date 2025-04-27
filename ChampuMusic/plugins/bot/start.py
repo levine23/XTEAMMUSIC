@@ -70,13 +70,12 @@ async def start_comm(client, message: Message, _):
                     photo=START_IMG_URL,
                     caption=_["help_1"],
                     reply_markup=keyboard,
-                    effect_id=5104841245755180586,
+                    effect_id=5104841245755180586
                 )
             else:
                 return await message.reply_text(
                     text=_["help_1"],
                     reply_markup=keyboard,
-                    effect_id=5104841245755180586,
                 )
         if name[0:4] == "song":
             await message.reply_text(_["song_2"])
@@ -278,7 +277,7 @@ async def testbot(client, message: Message, _):
                 photo=chat_photo,
                 caption=_["start_7"].format(client.mention, get_readable_time(uptime)),
                 reply_markup=InlineKeyboardMarkup(out),
-                effect_id=5104841245755180586,
+                effect_id=5104841245755180586
             )
             await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
         else:
@@ -387,3 +386,4 @@ __HELP__ = f"""
 
 <b>✧ /authorized</b> - Cʜᴇᴄᴋ ᴀʟʟ ᴀʟʟᴏᴡᴇᴅ ᴄʜᴀᴛs ᴏғ ʏᴏᴜʀ ʙᴏᴛ.
 """
+                    
