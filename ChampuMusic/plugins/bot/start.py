@@ -76,8 +76,7 @@ async def start_comm(client, message: Message, _):
                 return await message.reply_text(
                     text=_["help_1"],
                     reply_markup=keyboard,
-                    effect_id=5104841245755180586,
-                    effect_id=5105012967990918760
+                    effect_id=5104841245755180586
                 )
         if name[0:4] == "song":
             await message.reply_text(_["song_2"])
