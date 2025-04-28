@@ -279,7 +279,6 @@ async def testbot(client, message: Message, _):
                 photo=chat_photo,
                 caption=_["start_7"].format(client.mention, get_readable_time(uptime)),
                 reply_markup=InlineKeyboardMarkup(out),
-                effect_id=5104841245755180586,
                 effect_id=5105012967990918760
             )
             await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
@@ -288,7 +287,6 @@ async def testbot(client, message: Message, _):
                 photo=config.START_IMG_URL,
                 caption=_["start_7"].format(client.mention, get_readable_time(uptime)),
                 reply_markup=InlineKeyboardMarkup(out),
-                effect_id=5104841245755180586,
                 effect_id=5105012967990918760
             )
             await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
