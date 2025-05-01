@@ -72,10 +72,10 @@ async def start_comm(client, message: Message, _):
                 await message.delete()
                 if config.START_IMG_URL:
                     return await message.reply_photo(
-                        photo=START_IMG_URL,
+                        photo=config.START_IMG_URL,
                         caption=_["help_1"],
-                        reply_markup=keyboard,
-                        effect_id=510484124575518058
+                        reply_markup=keyboard
+                        effect_id=5104841245755180586
                     )
                 else:
                 return await message.reply_text(
