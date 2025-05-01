@@ -65,7 +65,9 @@ async def start_comm(client, message: Message, _):
             keyboard = InlineKeyboardMarkup(
                 paginate_modules(0, HELPABLE, "help", close=True)
             )
-            await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
+            await message.reply_video(
+                video="https://files.catbox.moe/5dmza5.webm",
+            )
             await asyncio.sleep(1)
             await message.delete()
             if config.START_IMG_URL:
