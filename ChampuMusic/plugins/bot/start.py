@@ -62,11 +62,11 @@ async def start_comm(client, message: Message, _):
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
-        if name.startswith("help"):
+    if name.startswith("help"):
             keyboard = InlineKeyboardMarkup(
                 paginate_modules(0, HELPABLE, "help", close=True)
             )
-            try:
+        try:
                 await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
                 await asyncio.sleep(1)
                 await message.delete()
@@ -83,11 +83,11 @@ async def start_comm(client, message: Message, _):
                         reply_markup=keyboard,
                         effect_id=5104841245755180586
                     )
-        if name[0:4] == "song":
-            await message.reply_text(_["song_2"])
-            return
-        if name == "mkdwn_help":
-            await message.reply(
+                    if name[0:4] == "song":
+                      await message.reply_text(_["song_2"])
+                    return
+                    if name == "mkdwn_help":
+                        await message.reply(
                 MARKDOWN,
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True,
