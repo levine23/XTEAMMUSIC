@@ -66,7 +66,7 @@ async def start_comm(client, message: Message, _):
                 paginate_modules(0, HELPABLE, "help", close=True)
             )
             try:
-    await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
+               await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
 except Exception as e:
     logging.error(f"Error sending sticker: {e}")
             await message.reply_video(
