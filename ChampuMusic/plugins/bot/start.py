@@ -61,12 +61,14 @@ async def start_comm(client, message: Message, _):
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
-        if name[0:4] == "help":
+        if name.startswith("help"):
             keyboard = InlineKeyboardMarkup(
                 paginate_modules(0, HELPABLE, "help", close=True)
             )
+            await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
             await message.reply_video(
                 video="https://files.catbox.moe/5dmza5.webm",
+                reply_markup=keyboard
             )
             await asyncio.sleep(1)
             await message.delete()
