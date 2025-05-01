@@ -65,19 +65,19 @@ async def start_comm(client, message: Message, _):
         if name.startswith("help"):
             keyboard = InlineKeyboardMarkup(
                 paginate_modules(0, HELPABLE, "help", close=True)
-            ) 
+            )
             try:
                 await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
                 await asyncio.sleep(1)
                 await message.delete()
                 if config.START_IMG_URL:
-                return await message.reply_photo(
-                    photo=START_IMG_URL,
-                    caption=_["help_1"],
-                    reply_markup=keyboard,
-                    effect_id=5104841245755180586
-                )
-            else:
+                    return await message.reply_photo(
+                        photo=START_IMG_URL,
+                        caption=_["help_1"],
+                        reply_markup=keyboard,
+                        effect_id=510484124575518058
+                    )
+                else:
                 return await message.reply_text(
                     text=_["help_1"],
                     reply_markup=keyboard,
