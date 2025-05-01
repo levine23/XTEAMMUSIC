@@ -70,11 +70,13 @@ async def start_comm(client, message: Message, _):
                     photo=START_IMG_URL,
                     caption=_["help_1"],
                     reply_markup=keyboard,
+                    effect_id=5104841245755180586
                 )
             else:
                 return await message.reply_text(
                     text=_["help_1"],
                     reply_markup=keyboard,
+                    effect_id=5104841245755180586
                 )
         if name[0:4] == "song":
             await message.reply_text(_["song_2"])
@@ -152,6 +154,7 @@ async def start_comm(client, message: Message, _):
                 return await app.send_message(
                     config.LOGGER_ID,
                     f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <code>sᴜᴅᴏʟɪsᴛ </code>\n\n**ᴜsᴇʀ ɪᴅ :** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
+                effect_id=5104841245755180586
                 )
                 await message.reply_sticker(sticker=AAMCBQADGQEAARa7A2fuinxNRTJqtIWMrKblVxg4kFwbAAKJFQACsogIVL4swMdrxAe0AQAHbQADNgQ)
                 await asyncio.sleep(1)
@@ -210,6 +213,7 @@ async def start_comm(client, message: Message, _):
                 caption=searched_text,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=key,
+                effect_id=5104841245755180586
             )
             await message.reply_sticker(sticker=AAMCBQADGQEAARa7A2fuinxNRTJqtIWMrKblVxg4kFwbAAKJFQACsogIVL4swMdrxAe0AQAHbQADNgQ)
             await asyncio.sleep(1)
@@ -219,6 +223,7 @@ async def start_comm(client, message: Message, _):
                 return await app.send_message(
                     config.LOGGER_ID,
                     f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ<code> ᴠɪᴅᴇᴏ ɪɴғᴏʀᴍᴀᴛɪᴏɴ </code>\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ** {sender_name}",
+                effect_id=5104841245755180586
                 )
     else:
 
@@ -276,6 +281,7 @@ async def testbot(client, message: Message, _):
                 photo=chat_photo,
                 caption=_["start_7"].format(client.mention, get_readable_time(uptime)),
                 reply_markup=InlineKeyboardMarkup(out),
+                effect_id=5104841245755180586
             )
             await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
         else:
@@ -283,6 +289,7 @@ async def testbot(client, message: Message, _):
                 photo=config.START_IMG_URL,
                 caption=_["start_7"].format(client.mention, get_readable_time(uptime)),
                 reply_markup=InlineKeyboardMarkup(out),
+                effect_id=5104841245755180586
             )
             await message.reply_sticker(sticker=CAACAgUAAxkBAAEWuwNn7op8TUUyarSFjKym5VcYOJBcGwACiRUAArKICFS-LMDHa8QHtDYE)
 
