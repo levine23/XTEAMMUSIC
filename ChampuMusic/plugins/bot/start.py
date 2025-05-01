@@ -67,27 +67,20 @@ async def start_comm(client, message: Message, _):
             ) 
             try:
                 await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
-            except Exception as e:
-                logging.error(f"Error sending sticker: {e}")
-            
-            await message.reply_video(
-                video="https://files.catbox.moe/5dmza5.webm",
-                reply_markup=keyboard
-            )
-            await asyncio.sleep(1)
-            await message.delete()
-            if config.START_IMG_URL:
+                await asyncio.sleep(1)
+                await message.delete()
+                if config.START_IMG_URL:
                 return await message.reply_photo(
                     photo=START_IMG_URL,
                     caption=_["help_1"],
                     reply_markup=keyboard,
-                    effect_id=5046509860389126442
+                    effect_id=5104841245755180586
                 )
             else:
                 return await message.reply_text(
                     text=_["help_1"],
                     reply_markup=keyboard,
-                    effect_id=5046509860389126442
+                    effect_id=5104841245755180586
                 )
         if name[0:4] == "song":
             await message.reply_text(_["song_2"])
@@ -254,7 +247,7 @@ async def start_comm(client, message: Message, _):
             photo=chat_photo,
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
-            effect_id=5046509860389126442
+            effect_id=5104841245755180586
         )
         if await is_on_off(config.LOG):
             sender_id = message.from_user.id
