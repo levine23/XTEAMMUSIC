@@ -74,7 +74,7 @@ async def start_comm(client, message: Message, _):
                     return await message.reply_photo(
                         photo=config.START_IMG_URL,
                         caption=_["help_1"],
-                        reply_markup=keyboard
+                        reply_markup=keyboard,
                         effect_id=5104841245755180586
                     )
                 else:
