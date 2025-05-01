@@ -64,11 +64,11 @@ async def start_comm(client, message: Message, _):
         if name.startswith("help"):
             keyboard = InlineKeyboardMarkup(
                 paginate_modules(0, HELPABLE, "help", close=True)
-            )
-            try:
-               await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
-            except Exception as e:
-    logging.error(f"Error sending sticker: {e}")
+            ) 
+try:
+   await message.reply_sticker("CAACAgEAAxkBAAJYdWZLJQqyG4fMdFFHFbTZDZPczqfnAAJUAgACODjZR-6jaMt58aQENQQ")
+except Exception as e:
+   logging.error(f"Error sending sticker: {e}")
             await message.reply_video(
                 video="https://files.catbox.moe/5dmza5.webm",
                 reply_markup=keyboard
