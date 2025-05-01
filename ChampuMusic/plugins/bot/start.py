@@ -3,7 +3,7 @@ import time
 import logging
 from pyrogram import filters
 from pyrogram.enums import ParseMode
-from pyrogram.enums import ChatType, Message
+from pyrogram.enums import ChatType
 from pyrogram.types import (
     CallbackQuery,
     InlineKeyboardButton,
