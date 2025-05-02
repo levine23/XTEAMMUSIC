@@ -29,7 +29,7 @@ RADIO_STATION = {
     "ʏᴏᴜᴛᴜʙᴇ": "https://www.youtube.com/live/eu191hR_LEc?si=T-9QYD548jd0Mogp",
     "ᴢᴇᴇ ɴᴇᴡs": "https://www.youtube.com/live/TPcmrPrygDc?si=hiHBkIidgurQAd1P",
     "Chill out": "https://www.youtube.com/live/36YnV9STBqc",
-    "ARDAN 105.9": "https://radioonline.co.id/ardan-bandung",
+    "Indo": "https://www.youtube.com/live/U4Ux0ePA_2U?si=3oMcD6xDMIl5N7jG",
 }
 
 
