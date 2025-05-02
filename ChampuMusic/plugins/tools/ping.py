@@ -17,6 +17,7 @@ async def ping_com(client, message: Message, _):
     response = await message.reply_photo(
         photo=PING_IMG_URL,
         caption=_["ping_1"].format(app.mention),
+        effect_id=5104841245755180586,
     )
     start = datetime.now()
     pytgping = await Champu.ping()
@@ -31,7 +32,7 @@ async def ping_com(client, message: Message, _):
             CPU,
             DISK,
             pytgping,
-            effect_id=5104841245755180586
+            effect_id=5104841245755180586,
         ),
         reply_markup=support_group_markup(_),
     )
