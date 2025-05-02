@@ -241,7 +241,7 @@ async def start_comm(client, message: Message, _):
             if message.chat.photo:
 
                 userss_photo = await app.download_media(
-                    message.chat.photo.big_file_id,
+                    message.chat.photo.small_file_id,
                 )
             else:
                 userss_photo = "assets/nodp.jpg"
@@ -274,7 +274,7 @@ async def testbot(client, message: Message, _):
         try:
             # Try downloading the group's photo
             groups_photo = await client.download_media(
-                message.chat.photo.big_file_id, file_name=f"chatpp{chat_id}.png"
+                message.chat.photo.small_file_id, file_name=f"chatpp{chat_id}.png"
             )
             chat_photo = groups_photo if groups_photo else START_IMG_URL
         except AttributeError:
@@ -334,7 +334,7 @@ async def welcome(client, message: Message):
             if member.id == client.id:
                 try:
                     groups_photo = await client.download_media(
-                        message.chat.photo.big_file_id, file_name=f"chatpp{chat_id}.png"
+                        message.chat.photo.small_file_id, file_name=f"chatpp{chat_id}.png"
                     )
                     chat_photo = groups_photo if groups_photo else START_IMG_URL
                 except AttributeError:
