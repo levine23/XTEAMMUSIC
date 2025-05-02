@@ -31,6 +31,7 @@ async def ping_com(client, message: Message, _):
             CPU,
             DISK,
             pytgping,
+            effect_id=5104841245755180586
         ),
         reply_markup=support_group_markup(_),
     )
