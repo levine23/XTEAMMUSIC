@@ -29,6 +29,7 @@ RADIO_STATION = {
     "ʏᴏᴜᴛᴜʙᴇ": "https://www.youtube.com/live/eu191hR_LEc?si=T-9QYD548jd0Mogp",
     "ᴢᴇᴇ ɴᴇᴡs": "https://www.youtube.com/live/TPcmrPrygDc?si=hiHBkIidgurQAd1P",
     "Chill out": "https://www.youtube.com/live/36YnV9STBqc",
+    "ARDAN 105.9": "https://open.noice.id/catalog/05001867-ab85-4ac1-bb72-d8e6d285ddbd?utm_source=app_sharing&referrer_id=da21ce5d-b8d3-4fc7-861d-e29635556e99&utm_medium=radio",
 }
 
 
