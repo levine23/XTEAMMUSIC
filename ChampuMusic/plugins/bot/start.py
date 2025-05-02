@@ -71,7 +71,7 @@ async def start_comm(client, message: Message, _):
     effect_id=5104841245755180586
     )
     await asyncio.sleep(1)
-    await message.delete()
+    await message_sticker.delete()
 
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
