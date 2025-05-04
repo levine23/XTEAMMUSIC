@@ -10,7 +10,7 @@ from youtubesearchpython import VideosSearch
 from ChampuMusic import app
 
 
-@app.on_message(filters.command(["vsong"]))
+@app.on_message(filters.command(["video"]))
 async def vsong_cmd(client, message):
     """Perintah untuk mengunduh dan mengirimkan video YouTube."""
     if len(message.command) < 2:
