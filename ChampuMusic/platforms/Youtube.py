@@ -181,7 +181,7 @@ class YouTubeAPI:
             "yt-dlp",
             "-g",
             "-f",
-            "best[height<=?720][width<=?1280]",
+            "best[height<=?2160][width<=?3840]",
             f"{link}",
         ]
         cmd = get_ytdl_options(cmd)
