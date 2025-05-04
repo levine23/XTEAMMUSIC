@@ -7,7 +7,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 from yt_dlp import YoutubeDL
 from youtubesearchpython import VideosSearch
-from AnonXMusic import app
+from ChampuMusic import app
 
 
 @app.on_message(filters.command(["vsong"]))
