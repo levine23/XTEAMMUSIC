@@ -312,6 +312,7 @@ class YouTubeAPI:
 
         def audio_dl():
             ydl_optssx = {
+                "cookiefile": "cookies.txt",
                 "format": "bestaudio/best",
                 "outtmpl": "downloads/%(id)s.%(ext)s",
                 "geo_bypass": True,
@@ -319,9 +320,7 @@ class YouTubeAPI:
                 "quiet": True,
                 "no_warnings": True,
             }
-            ydl_optssx = get_ytdl_options(ydl_optssx, False)
-
-            x = YoutubeDL(ydl_optssx)
+            x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
             xyz = os.path.join("downloads", f"{info['id']}.{info['ext']}")
             if os.path.exists(xyz):
@@ -338,9 +337,7 @@ class YouTubeAPI:
                 "quiet": True,
                 "no_warnings": True,
             }
-            ydl_optssx = get_ytdl_options(ydl_optssx, False)
-
-            x = YoutubeDL(ydl_optssx)
+            x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
             xyz = os.path.join("downloads", f"{info['id']}.{info['ext']}")
             if os.path.exists(xyz):
@@ -352,6 +349,7 @@ class YouTubeAPI:
             formats = f"{format_id}+140"
             fpath = f"downloads/{title}"
             ydl_optssx = {
+                "cookiefile": "cookies.txt",
                 "format": formats,
                 "outtmpl": fpath,
                 "geo_bypass": True,
@@ -361,14 +359,13 @@ class YouTubeAPI:
                 "prefer_ffmpeg": True,
                 "merge_output_format": "mp4",
             }
-            ydl_optssx = get_ytdl_options(ydl_optssx, False)
-
-            x = YoutubeDL(ydl_optssx)
+            x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
 
         def song_audio_dl():
             fpath = f"downloads/{title}.%(ext)s"
             ydl_optssx = {
+                "cookiefile": "cookies.txt",
                 "format": format_id,
                 "outtmpl": fpath,
                 "geo_bypass": True,
@@ -384,9 +381,7 @@ class YouTubeAPI:
                     }
                 ],
             }
-            ydl_optssx = get_ytdl_options(ydl_optssx, False)
-
-            x = YoutubeDL(ydl_optssx)
+            x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
 
         if songvideo:
@@ -398,26 +393,22 @@ class YouTubeAPI:
             fpath = f"downloads/{title}.mp3"
             return fpath
         elif video:
-            if await is_on_off(config.YTDOWNLOADER):
+            if await is_on_off(1):
                 direct = True
                 downloaded_file = await loop.run_in_executor(None, video_dl)
             else:
-                command = [
+                proc = await asyncio.create_subprocess_exec(
                     "yt-dlp",
+                    "--cookies",
+                    "cookies.txt",
                     "-g",
                     "-f",
                     "best[height<=?720][width<=?1280]",
-                ]
-                command += get_ytdl_options([])
-                command.append(link)
-
-                proc = await asyncio.create_subprocess_exec(
-                    *command,
+                    f"{link}",
                     stdout=asyncio.subprocess.PIPE,
                     stderr=asyncio.subprocess.PIPE,
                 )
                 stdout, stderr = await proc.communicate()
-
                 if stdout:
                     downloaded_file = stdout.decode().split("\n")[0]
                     direct = None
@@ -426,5 +417,4 @@ class YouTubeAPI:
         else:
             direct = True
             downloaded_file = await loop.run_in_executor(None, audio_dl)
-
         return downloaded_file, direct
