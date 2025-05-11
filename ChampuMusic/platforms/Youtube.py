@@ -1,19 +1,6 @@
-import asyncio
-import glob
-import os
-import random
-import re
-from typing import Union
-
-from pyrogram.enums import MessageEntityType
-from pyrogram.types import Message
-from youtubesearchpython.__future__ import VideosSearch
-from yt_dlp import YoutubeDL
-
 import config
 from ChampuMusic.utils.database import is_on_off
 from ChampuMusic.utils.formatters import time_to_seconds
-
 import  httpx
 from youtubesearchpython.__future__ import VideosSearch
 import asyncio
