@@ -7,7 +7,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
 from ChampuMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
-from ChampuMusic.core.call import Anony
+from ChampuMusic.core.call import Champu as Anony
 from ChampuMusic.utils import seconds_to_min, time_to_seconds
 from ChampuMusic.utils.channelplay import get_channeplayCB
 from ChampuMusic.utils.decorators.language import languageCB
