@@ -81,17 +81,12 @@ async def download_video(client, CallbackQuery):
     url = mo
     sedlyf = wget.download(kekme)
     opts = {
-        "format": "best",
-        "addmetadata": True,
-        "key": "FFmpegMetadata",
-        "prefer_ffmpeg": True,
-        "geo_bypass": True,
-        "nocheckcertificate": True,
-        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
-        "outtmpl": "%(id)s.mp4",
-        "logtostderr": False,
-        "quiet": True,
-        "cookiefile": cookie_txt_file(),
+                "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio[ext=m4a])",
+                "outtmpl": "downloads/%(id)s.%(ext)s",
+                "geo_bypass": True,
+                "nocheckcertificate": True,
+                "quiet": True,
+                "no_warnings": True,
     }
     try:
         with YoutubeDL(opts) as ytdl:
@@ -210,16 +205,12 @@ async def download_audio(client, CallbackQuery):
     url = mo
     sedlyf = wget.download(kekme)
     opts = {
-        "format": "bestaudio/best",
-        "addmetadata": True,
-        "key": "FFmpegMetadata",
-        "prefer_ffmpeg": True,
-        "geo_bypass": True,
-        "nocheckcertificate": True,
-        "outtmpl": "%(id)s.mp3",  # Output format changed to mp3
-        "logtostderr": False,
-        "quiet": True,
-        "cookiefile": cookie_txt_file(),
+                "format": "bestaudio/best",
+                "outtmpl": "downloads/%(id)s.%(ext)s",
+                "geo_bypass": True,
+                "nocheckcertificate": True,
+                "quiet": True,
+                "no_warnings": True,
     }
     try:
         with YoutubeDL(opts) as ytdl:
